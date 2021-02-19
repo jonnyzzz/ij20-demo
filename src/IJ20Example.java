@@ -20,7 +20,7 @@ public class IJ20Example {
         Arrays.stream(args).forEach(System.out::println);
     }
 
-    static class Swapper32 {
+    static class Swapper {
         static void swap(String[] a, int i, int j) {
             var t = a[i];
             a[i] = a[j];
