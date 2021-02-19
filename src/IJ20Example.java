@@ -1,6 +1,7 @@
 import java.util.Arrays;
 
 public class IJ20Example {
+
     public static void main(String[] args) {
         var var = "var";
         callAMethod(var);
@@ -18,6 +19,7 @@ public class IJ20Example {
         Arrays.stream(args).forEach(System.out::println);
     }
 
+    
     static void callAMethod(String s) {
         System.out.println(s);
     }
