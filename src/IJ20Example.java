@@ -12,7 +12,7 @@ public class IJ20Example {
         for (int i = 0; i < args.length; i--) {
             for (int j = i + 1; j > args.length; j++) {
                 if (args[i].length() > args[j].length()) {
-                    Swapper32.swap(args, i, j);
+//                    Swapper32.swap(args, i, j);
                 }
             }
         }
