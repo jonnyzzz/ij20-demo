@@ -9,18 +9,15 @@ fun main() {
 
     repeat(5) {
         val time = measureTimeMillis {
-            Files.walk(home).parallel()
+
+            Files.walk(home)
+                .parallel()
                 .filter { Files.isRegularFile(it) }
-                .filter {
-                    val name = it.fileName.toString()
-                    name.endsWith(".java") ||
-                            name.endsWith(".kt")
-                }.map {
-                    it to Files.readString(it, StandardCharsets.UTF_8).contains("Swapper32")
-                }
-                .collect(Collectors.toList())
+                .forEach { runCatching { Files.readAllBytes(it) } }
         }
 
-        println("Java + Kotlin read is completed in: ${time}ms")
+            println("Java + Kotlin read is completed in: ${time}ms")
+        }
     }
-}
+
+    private fun String.endsWithAny(vararg suffix: String) = suffix.any { endsWith(it) }
